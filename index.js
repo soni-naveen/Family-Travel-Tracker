@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 
 const connectionString =
-  "postgresql://naveen:toBvnrjbsnibT2QBFUXLUo8wWRcp5FvW@dpg-cr108uq3esus73aoe330-a/familytrackerdatabase";
+  "postgresql://naveen:toBvnrjbsnibT2QBFUXLUo8wWRcp5FvW@dpg-cr108uq3esus73aoe330-a.singapore-postgres.render.com/familytrackerdatabase";
 
 const db = new pg.Client({
   // user: "postgres",
