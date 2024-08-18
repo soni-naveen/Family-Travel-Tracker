@@ -5,27 +5,14 @@ import pg from "pg";
 const app = express();
 const port = 3000;
 
-const connectionString =
-  "postgresql://naveen:toBvnrjbsnibT2QBFUXLUo8wWRcp5FvW@dpg-cr108uq3esus73aoe330-a.singapore-postgres.render.com/familytrackerdatabase";
-
 const db = new pg.Client({
-  // user: "postgres",
-  // host: "localhost",
-  // database: "Family Travel Tracker",
-  // password: "#postgresql#",
-  // port: 5432,
-  connectionString: connectionString,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  user: "postgres",
+  host: "localhost",
+  database: "Family Travel Tracker",
+  password: "#postgresql#",
+  port: 5432,
 });
-
-db.connect()
-  .then(() => console.log("Connected to the database"))
-  .catch((err) => console.error("Connection error", err.stack));
-
-// err.stack is a property of the Error object in JavaScript that provides a stack trace of the error.
-// The stack trace is a string that shows the point in the code where the error occurred and the sequence of function calls that led to that error.
+db.connect();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -34,7 +21,7 @@ let currentUserId = 1;
 
 let users = [
   { id: 1, name: "Naveen", color: "teal" },
-  { id: 2, name: "Jack", color: "powderblue" },
+  { id: 2, name: "Himanshu", color: "powderblue" },
 ];
 
 async function checkVisited() {
